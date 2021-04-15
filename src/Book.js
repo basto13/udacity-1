@@ -4,13 +4,6 @@ import BookshelfChangerButton from './BookshelfChangerButton';
 const Book = (props) => {
     const { book, onChangeShelf } = props;
 
-    const getAuthorsString = (bookAuthors) => {
-        if (bookAuthors) {
-            return bookAuthors.join(', ');
-        }
-        return '';
-    }
-
     if (!book.imageLinks.thumbnail) {
         return null;
     }
@@ -25,7 +18,7 @@ const Book = (props) => {
                     </div>
                 </div>
                 <div className='book-title'>{book.title}</div>
-                <div className='book-authors'>{getAuthorsString(book.authors)}</div>
+                <div className='book-authors'>{book.authors? book.authors.join(', ') : ''}</div>
             </div>
 
         </li>
