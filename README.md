@@ -13,7 +13,7 @@ A bookshelf app allows to use an API server and client library
 
 ### `Project setup`
 
-* clone the Project - 
+* clone the Project - https://github.com/basto13/udacity-1.git 
 * install the dependencies - `npm install`
 
 ### Run the project
