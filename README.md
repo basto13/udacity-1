@@ -6,7 +6,7 @@ This repo is a first project performed within the Udacity React course.
 
 ## Functionality
 
-A bookshelf app allows 
+A bookshelf app allows to use an API server and client library
 - to select and categorize books into three categoties/shelves: to read, currently reading, or want to read;
 - to search new books and add them to the shelves. 
 
