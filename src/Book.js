@@ -4,13 +4,13 @@ import BookshelfChangerButton from './BookshelfChangerButton';
 const Book = (props) => {
     const { book, onChangeShelf } = props;
 
-    if (!book.imageLinks.thumbnail) {
+    if (!book.imageLinks || !book.imageLinks.thumbnail) {
         return null;
     }
 
     return (
         <li>
-            <div className='book' key={book.title}>
+            <div className='book'>
                 <div className='book-top'>
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                     <div>
