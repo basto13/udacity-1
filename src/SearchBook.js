@@ -16,18 +16,17 @@ class SearchBook extends Component {
         const { booksOnShelves } = this.props
         const newSearch = event.target.value;
         this.setState(() => ({ query: newSearch }));
-        if (searchOptions.includes(newSearch.toLowerCase())) {
-            BooksAPI.search(newSearch)
-                .then(books => {
-                    if (!books.error) {
-                        this.findSimilarBooks(booksOnShelves, books)
-                        this.setState({ books: books || [] })
-                    }
-                })
-            }
-        else {
-                this.setState({ books: [] })
-            }
+        BooksAPI.search(newSearch)
+            .then(books => {
+                console.log(books)  
+                if (books && !books.error) {
+                    this.findSimilarBooks(booksOnShelves, books)
+                    this.setState({ books: books || [] })
+                } else {
+                    this.setState({ books: [] })
+                }
+            })
+
     }
 
     findSimilarBooks = (booksOnShelves, searchBooks) => {

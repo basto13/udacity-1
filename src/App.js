@@ -10,11 +10,9 @@ class App extends Component {
     books: []
   }
 
-  componentDidMount() {
-    BooksAPI.getAll()
-      .then(books => {
-        this.setState({ books: books })
-      })
+  async componentDidMount() {
+    const books = await BooksAPI.getAll();
+    this.setState({ books })
   }
 
   changeShelf = (newShelf, currentBook) => {
@@ -26,7 +24,7 @@ class App extends Component {
       return {}
 
     });
-    BooksAPI.update(currentBook, currentBook.shelf)
+    BooksAPI.update(currentBook, newShelf)
   }
 
   render() {
