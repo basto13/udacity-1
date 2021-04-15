@@ -21,7 +21,10 @@ class SearchBook extends Component {
                         this.setState({ books: books || [] })
                     }
                 })
-        }
+            }
+        else {
+                this.setState({ books: [] })
+            }
     }
 
     findSimilarBooks = (booksOnShelves, searchBooks) => {
@@ -47,7 +50,7 @@ class SearchBook extends Component {
                         to='/'>
                         Close
                 </Link>
-                    <input 
+                    <input
                         type='text'
                         placeholder='Search by title or author'
                         value={query}
