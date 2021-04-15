@@ -18,9 +18,13 @@ class App extends Component {
   }
 
   changeShelf = (newShelf, currentBook) => {
-    currentBook.shelf = newShelf;
     this.setState(previousState => {
-      return { books: previousState.books.concat(currentBook) }
+      currentBook.shelf = newShelf
+      if (!previousState.books.includes(currentBook)) {
+        return { books: previousState.books.concat(currentBook) }
+      }
+      return {}
+
     });
     BooksAPI.update(currentBook, currentBook.shelf)
   }
