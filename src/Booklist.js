@@ -9,6 +9,7 @@ const Booklist = (props) => {
             <ol className="books-grid">
                 {books.map(book =>
                     <Book
+                        key={book.title}
                         book={book}
                         onChangeShelf={onChangeShelf}
                     />
