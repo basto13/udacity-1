@@ -18,10 +18,10 @@ class App extends Component {
   }
 
   changeShelf = (newShelf, currentBook) => {
-    const newBooks = this.state.books.filter(book => book !== currentBook);
     currentBook.shelf = newShelf;
-    newBooks.push(currentBook)
-    this.setState({ books: newBooks });
+    this.setState(previousState => {
+      return { books: previousState.books.concat(currentBook) }
+    });
     BooksAPI.update(currentBook, currentBook.shelf)
   }
 
@@ -36,11 +36,11 @@ class App extends Component {
             />
           </div>
         )} />
-        <Route path='/search' render={() => 
-        <SearchBook 
-        booksOnShelves={this.state.books} 
-        onChangeShelf={this.changeShelf}
-        />} />
+        <Route path='/search' render={() =>
+          <SearchBook
+            booksOnShelves={this.state.books}
+            onChangeShelf={this.changeShelf}
+          />} />
       </div>
 
 
